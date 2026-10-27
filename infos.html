@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property & Project Connectivity Eoto Properties</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="logo">
+            EOTO <span>CONNECTIVITY DETAIL</span>
+        </div>
+
+        <button class="menu-button" id="menuButton">
+            ☰
+        </button>
+
+        <nav id="navigation">
+            <a href="home.html">Home</a>
+            <a href="connectivity.html">🌐 Connectivity Hub</a>
+            <a href="properties.html" class="active">Properties & Projects</a>
+            <a href="agreements.html">📜 Digital Agreements</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="signout.html">Sign Out</a>
+        </nav>
+    </header>
+
+    <!-- ================= HERO BANNER ================= -->
+    <section class="page-banner"
+        style="background: linear-gradient(rgba(15, 36, 56, 0.88), rgba(15, 36, 56, 0.95)), url('image/villa 1 kampala division.webp'); background-size: cover; background-position: center;">
+        <p class="small-title">VERIFIED ECOSYSTEM LISTING</p>
+        <h1 id="detailTitle">Modern Kampala Luxury Villa & Construction Blueprint</h1>
+        <p>Connected with verified Construction Companies, Exclusive Brokers, and Property Landlords.</p>
+    </section>
+
+    <!-- ================= MAIN DETAIL CONTENT ================= -->
+    <main class="section" style="max-width: 1200px; margin: 0 auto; padding: 40px 20px;">
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 36px; align-items: start;">
+
+            <!-- LEFT: GALLERY & SPECS -->
+            <div>
+                <!-- Main Image Showcase -->
+                <div
+                    style="border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 24px; position: relative;">
+                    <img src="image/villa 1 kampala division.webp" id="mainDetailImage" alt="Kampala Villa"
+                        style="width: 100%; height: 420px; object-fit: cover;">
+                    <span
+                        style="position: absolute; top: 20px; left: 20px; background: var(--green); color: #fff; padding: 6px 14px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">
+                        READY TO BUILD OR BUY
+                    </span>
+                </div>
+
+                <!-- Thumbnail Reel -->
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 30px;">
+                    <img src="image/villa 1 kampala division.webp"
+                        style="height: 80px; width: 100%; object-fit: cover; border-radius: 8px; cursor: pointer; border: 2px solid var(--green);"
+                        onclick="swapDetailImg(this.src)">
+                    <img src="image/villa 2 kampala division classic.webp"
+                        style="height: 80px; width: 100%; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid #cbd5e1;"
+                        onclick="swapDetailImg(this.src)">
+                    <img src="image/villa 3 kampala division morden.webp"
+                        style="height: 80px; width: 100%; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid #cbd5e1;"
+                        onclick="swapDetailImg(this.src)">
+                    <img src="image/Glorioso Mercado.jpg"
+                        style="height: 80px; width: 100%; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid #cbd5e1;"
+                        onclick="swapDetailImg(this.src)">
+                </div>
+
+                <!-- Description -->
+                <div class="information-box" style="margin-bottom: 30px;">
+                    <h2 style="font-size: 1.6rem; color: var(--dark); margin-bottom: 12px;">Property & Blueprint
+                        Overview</h2>
+                    <p style="color: #475569; font-size: 1rem; line-height: 1.8; margin-bottom: 16px;">
+                        This premier architectural design is available as either an existing turnkey purchase in Kololo
+                        Hill,
+                        or as a <strong>custom building package</strong> constructible on your private plot anywhere in
+                        Uganda by our certified construction partner consortium.
+                    </p>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                        <div>
+                            <strong style="color: var(--blue); font-size: 0.85rem; display: block;">BEDROOMS</strong>
+                            <span style="font-size: 1.1rem; font-weight: bold;">4 En-suite</span>
+                        </div>
+                        <div>
+                            <strong style="color: var(--blue); font-size: 0.85rem; display: block;">BUILT AREA</strong>
+                            <span style="font-size: 1.1rem; font-weight: bold;">385 sq.m</span>
+                        </div>
+                        <div>
+                            <strong style="color: var(--blue); font-size: 0.85rem; display: block;">ESTIMATED BUILD
+                                TIME</strong>
+                            <span style="font-size: 1.1rem; font-weight: bold;">8 to 10 Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONNECTIVITY ARCHITECTURE & LINKED ENTITIES -->
+                <div class="information-box">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 16px; color: var(--dark);">
+                        🌐 Verified Linked Entities For This Listing
+                    </h3>
+
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <!-- Entity 1: Construction Company -->
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; background: #fff7ed; border: 1px solid #fed7aa; padding: 16px; border-radius: 12px;">
+                            <div style="display: flex; gap: 14px; align-items: center;">
+                                <span style="font-size: 2rem;">🏗️</span>
+                                <div>
+                                    <strong style="color: #c2410c; font-size: 1.05rem;">Apex Prime Engineering
+                                        Ltd</strong>
+                                    <p style="font-size: 0.84rem; color: #7c2d12;">Contractor / Builder • Grade A
+                                        Certified</p>
+                                </div>
+                            </div>
+                            <a href="agreements.html?type=construction&partner=Apex%20Prime%20Engineering"
+                                class="btn-primary-sm" style="background: #ea580c;">
+                                🔨 Request Construction Contract
+                            </a>
+                        </div>
+
+                        <!-- Entity 2: Exclusive Broker -->
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; background: #eff6ff; border: 1px solid #bfdbfe; padding: 16px; border-radius: 12px;">
+                            <div style="display: flex; gap: 14px; align-items: center;">
+                                <span style="font-size: 2rem;">💼</span>
+                                <div>
+                                    <strong style="color: #1d4ed8; font-size: 1.05rem;">Victoria Premier Realty</strong>
+                                    <p style="font-size: 0.84rem; color: #1e3a8a;">Listing Broker • Marketing Mandate
+                                        Holder</p>
+                                </div>
+                            </div>
+                            <a href="agreements.html?type=brokerage&partner=Victoria%20Premier%20Realty"
+                                class="btn-primary-sm" style="background: #2563eb;">
+                                🤝 View Broker Mandate
+                            </a>
+                        </div>
+
+                        <!-- Entity 3: Property Landlord -->
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; background: #f0fdfa; border: 1px solid #99f6e4; padding: 16px; border-radius: 12px;">
+                            <div style="display: flex; gap: 14px; align-items: center;">
+                                <span style="font-size: 2rem;">👑</span>
+                                <div>
+                                    <strong style="color: #0f766e; font-size: 1.05rem;">Hajji Ssemwanga Estates</strong>
+                                    <p style="font-size: 0.84rem; color: #134e4a;">Verified Property Owner / Landlord
+                                    </p>
+                                </div>
+                            </div>
+                            <a href="agreements.html?type=lease&partner=Hajji%20Ssemwanga%20Estates"
+                                class="btn-primary-sm" style="background: #0d9488;">
+                                🔑 Lease Direct From Landlord
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: PRICING & DIRECT ACTION CARD -->
+            <aside
+                style="background: #ffffff; border-radius: 16px; padding: 28px; box-shadow: var(--shadow); border: 1px solid var(--line); position: sticky; top: 90px;">
+                <div
+                    style="font-size: 0.82rem; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 6px;">
+                    FLEXIBLE ACQUISITION / BUILD MODES
+                </div>
+                <h2 style="font-size: 1.9rem; color: var(--green); margin-bottom: 14px;">
+                    UGX 450,000,000
+                </h2>
+                <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 22px;">
+                    Turnkey Purchase: <strong>UGX 450M</strong> | Custom Construction from: <strong>UGX 320M</strong> |
+                    Monthly Lease: <strong>UGX 4.5M/mo</strong>
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                    <!-- Action 1: Build With Contractor -->
+                    <button type="button" class="pillar-action-btn" style="background: #ea580c; color: white;"
+                        onclick="openConnectModal('build', 'Apex Prime Engineering')">
+                        🏗️ Build This House on My Plot
+                    </button>
+
+                    <!-- Action 2: Buy Through Broker -->
+                    <button type="button" class="pillar-action-btn" style="background: #2563eb; color: white;"
+                        onclick="openConnectModal('sell', 'Victoria Premier Realty')">
+                        💼 Connect With Listing Broker
+                    </button>
+
+                    <!-- Action 3: Rent Direct -->
+                    <button type="button" class="pillar-action-btn" style="background: #0d9488; color: white;"
+                        onclick="openConnectModal('rent', 'Hajji Ssemwanga Estates')">
+                        🔑 Apply to Rent / Lease
+                    </button>
+
+                    <!-- Action 4: Maintenance -->
+                    <button type="button" class="pillar-action-btn" style="background: #7c3aed; color: white;"
+                        onclick="openConnectModal('maintain', 'Eoto Pro-Care Maintenance')">
+                        🛠️ Assign Facility Maintenance
+                    </button>
+                </div>
+
+                <div style="border-top: 1px solid #e2e8f0; padding-top: 16px;">
+                    <a href="agreements.html" class="button button-full second-button"
+                        style="text-align: center; display: block; border-color: var(--blue); color: var(--blue);">
+                        📜 Open Legal Agreement Studio
+                    </a>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- CONNECTIVITY MODAL -->
+    <div class="modal-overlay" id="connectModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="modalPartnerTitle">Connect With Partner</h3>
+                <button class="modal-close-btn" onclick="closeConnectModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="linkProposalForm">
+                    <input type="hidden" id="modalPartnerName" value="">
+                    <input type="hidden" id="modalPartnerType" value="">
+
+                    <div class="form-group" style="margin-bottom: 14px;">
+                        <label style="font-size: 0.84rem; font-weight: 700;">Entity to Link With</label>
+                        <input type="text" id="partnerDisplayField" readonly
+                            style="background: #f1f5f9; font-weight: 700;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 14px;">
+                        <label style="font-size: 0.84rem; font-weight: 700;">Proposed Relationship</label>
+                        <select id="relationshipTypeSelect"
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                            <option value="build_contract">🏗️ Construction Client ⟷ Construction Firm</option>
+                            <option value="brokerage_mandate">💼 Landlord ⟷ Real Estate Broker</option>
+                            <option value="residential_lease">🔑 Tenant ⟷ Landlord Lease</option>
+                            <option value="property_maintenance">🛠️ Landlord ⟷ Facility Maintenance SLA</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 14px;">
+                        <label style="font-size: 0.84rem; font-weight: 700;">Your Message / Project Scope</label>
+                        <textarea id="proposalScope" rows="3"
+                            placeholder="Provide project timeline or viewing preference..."
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-family: inherit;"></textarea>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 14px;">
+                        <label style="font-size: 0.84rem; font-weight: 700;">Target Budget / Amount</label>
+                        <input type="text" id="proposedBudget" value="UGX 450,000,000"
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-sm" onclick="closeConnectModal()">Cancel</button>
+                <button class="btn-primary-sm" style="padding: 10px 20px;" onclick="submitLinkProposal()">🔗 Send
+                    Connection Proposal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast-msg" id="toastMessage">
+        <span>✓</span>
+        <span id="toastText">Action processed successfully!</span>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-box">
+                <div class="logo">
+                    EOTO <span>PROPERTIES</span>
+                </div>
+                <p>Complete Real Estate Ecosystem connecting Builders, Owners, Brokers, and Tenants.</p>
+            </div>
+            <div class="footer-box">
+                <h4>Ecosystem Navigation</h4>
+                <a href="connectivity.html">🌐 Connectivity Hub</a>
+                <a href="agreements.html">📜 Digital Agreements</a>
+                <a href="dashboard.html">📊 Dashboard</a>
+                <a href="properties.html">🏠 Properties & Construction Packages</a>
+            </div>
+            <div class="footer-box">
+                <h4>Contact Office</h4>
+                <p>Plot 42 Kampala Road, Uganda</p>
+                <p>+256 700 000 000</p>
+                <p>support@eotoproperties.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="year"></span> Eoto Real Estate Connectivity Platform.</p>
+        </div>
+    </footer>
+
+    <script>
+        function swapDetailImg(src) {
+            document.getElementById('mainDetailImage').src = src;
+        }
+    </script>
+    <script src="css/js/script.js"></script>
+</body>
+
+</html>

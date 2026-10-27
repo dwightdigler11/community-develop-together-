@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Agreement Studio | Eoto Properties</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="logo">
+            EOTO <span>AGREEMENT STUDIO</span>
+        </div>
+
+        <button class="menu-button" id="menuButton">
+            ☰
+        </button>
+
+        <nav id="navigation">
+            <a href="home.html">Home</a>
+            <a href="connectivity.html">🌐 Connectivity Hub</a>
+            <a href="properties.html">Properties & Projects</a>
+            <a href="agreements.html" class="active nav-pill-highlight">📜 Digital Agreements</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="signout.html">Sign Out</a>
+        </nav>
+    </header>
+
+    <!-- ================= BANNER ================= -->
+    <section class="connectivity-banner" style="padding: 50px 6% 60px;">
+        <div class="small-title" style="color: var(--yellow); letter-spacing: 2px;">DIGITAL LEGAL REPOSITORY & ESIGN
+        </div>
+        <h1>Share, Sign & Manage <span>Real Estate Agreements</span></h1>
+        <p>
+            Execute binding digital contracts between Construction Companies & Clients, Landlords & Brokers, Tenants &
+            Landlords,
+            and Facility Maintenance Providers in seconds.
+        </p>
+
+        <!-- Top Status Indicator -->
+        <div
+            style="display: inline-flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 999px; backdrop-filter: blur(8px);">
+            <span
+                style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e;"></span>
+            <span style="font-size: 0.88rem; font-weight: 700;">E-Sign Compliance Standard: 256-Bit SHA-2 Encrypted
+                Document Seal</span>
+        </div>
+    </section>cd
+
+    <!-- ================= MAIN STUDIO INTERFACE ================= -->
+    <main class="agreement-studio">
+        <div class="studio-grid">
+            <!-- LEFT: CONTRACT CONTROLS & FORM -->
+            <aside class="studio-controls">
+                <h3 class="control-heading">
+                    <span>📑</span> Select Agreement Type
+                </h3>
+
+                <div class="agreement-type-selector">
+                    <button type="button" class="type-btn active" id="btnTypeConstruction"
+                        onclick="switchAgreementType('construction')">
+                        <span class="icon">🏗️</span>
+                        <div>
+                            <strong>Building & Construction</strong>
+                            <div style="font-size: 0.76rem; color: #64748b;">Client ⟷ Construction Firm</div>
+                        </div>
+                    </button>
+
+                    <button type="button" class="type-btn" id="btnTypeBrokerage"
+                        onclick="switchAgreementType('brokerage')">
+                        <span class="icon">💼</span>
+                        <div>
+                            <strong>Broker Representation & Sale</strong>
+                            <div style="font-size: 0.76rem; color: #64748b;">Landlord / Owner ⟷ Broker</div>
+                        </div>
+                    </button>
+
+                    <button type="button" class="type-btn" id="btnTypeLease" onclick="switchAgreementType('lease')">
+                        <span class="icon">🔑</span>
+                        <div>
+                            <strong>Residential Tenancy Lease</strong>
+                            <div style="font-size: 0.76rem; color: #64748b;">Tenant ⟷ Property Landlord</div>
+                        </div>
+                    </button>
+
+                    <button type="button" class="type-btn" id="btnTypeMaintenance"
+                        onclick="switchAgreementType('maintenance')">
+                        <span class="icon">🛠️</span>
+                        <div>
+                            <strong>Facility Maintenance SLA</strong>
+                            <div style="font-size: 0.76rem; color: #64748b;">Landlord ⟷ Service Contractor</div>
+                        </div>
+                    </button>
+                </div>
+
+                <h3 class="control-heading" style="margin-top: 24px;">
+                    <span>✏️</span> Agreement Parameters
+                </h3>
+
+                <form id="agreementCustomizerForm" onsubmit="event.preventDefault(); updateAgreementPreview();">
+                    <div class="form-group" style="margin-bottom: 12px;">
+                        <label id="labelPartyA" style="font-size: 0.82rem; font-weight: 700; color: #475569;">First
+                            Party (Client / Landlord)</label>
+                        <input type="text" id="inputPartyA" value="Dr. Ronald Kiggundu (Client)"
+                            oninput="updateAgreementPreview()"
+                            style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 12px;">
+                        <label id="labelPartyB" style="font-size: 0.82rem; font-weight: 700; color: #475569;">Second
+                            Party (Builder / Broker / Tenant)</label>
+                        <input type="text" id="inputPartyB" value="Apex Prime Engineering Ltd (Contractor)"
+                            oninput="updateAgreementPreview()"
+                            style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 12px;">
+                        <label for="inputSubjectProperty"
+                            style="font-size: 0.82rem; font-weight: 700; color: #475569;">Subject Property /
+                            Project</label>
+                        <input type="text" id="inputSubjectProperty"
+                            value="Plot 84, Block 214, Kololo Hill Luxury Villa Development"
+                            oninput="updateAgreementPreview()"
+                            style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 12px;">
+                        <label id="labelFinancialTerms"
+                            style="font-size: 0.82rem; font-weight: 700; color: #475569;">Total Contract Consideration /
+                            Rent</label>
+                        <input type="text" id="inputFinancialTerms"
+                            value="UGX 450,000,000 (Four Hundred Fifty Million UGX)" oninput="updateAgreementPreview()"
+                            style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label for="inputCommencementDate"
+                            style="font-size: 0.82rem; font-weight: 700; color: #475569;">Commencement / Term</label>
+                        <input type="text" id="inputCommencementDate" value="1st November 2026 (Duration: 9 Months)"
+                            oninput="updateAgreementPreview()"
+                            style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                    </div>
+                </form>
+
+                <!-- DIGITAL SIGNATURE CANVAS PAD -->
+                <div class="signature-tool-box">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <strong style="font-size: 0.85rem; color: #0f172a;">✍️ Digital Signature Pad</strong>
+                        <span style="font-size: 0.74rem; color: #64748b;">Draw using mouse or touch</span>
+                    </div>
+
+                    <div class="canvas-wrapper">
+                        <canvas id="sigCanvas" width="340" height="110"></canvas>
+                        <span class="canvas-placeholder-text" id="sigPlaceholder">Sign here with mouse / touch</span>
+                    </div>
+
+                    <div class="signature-buttons">
+                        <button type="button" class="btn-secondary-sm" onclick="clearSignatureCanvas()">Clear</button>
+                        <button type="button" class="btn-primary-sm" onclick="applySignatureToDocument()">Apply
+                            Signature</button>
+                    </div>
+                </div>
+
+                <!-- ACTION BUTTONS -->
+                <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 10px;">
+                    <button type="button" class="button" style="width: 100%; text-align: center;"
+                        onclick="shareAgreementLink()">
+                        🔗 Share Agreement With Partner
+                    </button>
+                    <div style="display: flex; gap: 10px;">
+                        <button type="button" class="button second-button"
+                            style="flex: 1; text-align: center; padding: 10px;" onclick="window.print()">
+                            🖨️ Print / Save PDF
+                        </button>
+                        <button type="button" class="button second-button"
+                            style="flex: 1; text-align: center; padding: 10px;" onclick="markAgreementCompleted()">
+                            ✅ Seal & Vault
+                        </button>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- RIGHT: LIVE PARCHMENT DOCUMENT VIEW -->
+            <section class="document-paper-container">
+                <div class="document-paper" id="printableAgreementDoc">
+                    <!-- DOCUMENT HEADER -->
+                    <div class="doc-header">
+                        <div>
+                            <div class="doc-logo">EOTO <span>PROPERTIES</span></div>
+                            <div
+                                style="font-size: 0.78rem; text-transform: uppercase; color: #64748b; font-family: sans-serif; letter-spacing: 1px;">
+                                Verified Legal Network & Contract Registry
+                            </div>
+                        </div>
+                        <div class="doc-serial">
+                            <div id="docSerialDisplay">DOC REF: EOTO-AGR-2026-9042</div>
+                            <div id="docTimestamp">Generated: October 2026</div>
+                            <div style="color: #1f8a70; font-weight: bold;">STATUS: <span id="docStatusBadge">DRAFT
+                                    (PENDING SIGNATURE)</span></div>
+                        </div>
+                    </div>
+
+                    <!-- DOCUMENT TITLE -->
+                    <div class="doc-title">
+                        <h2 id="docDisplayTitle">STANDARD REAL ESTATE BUILDING & CONSTRUCTION CONTRACT</h2>
+                        <p class="doc-subtitle" id="docDisplaySubtitle">
+                            Governing the structural planning, milestone execution, and phase payments for residential
+                            villa construction.
+                        </p>
+                    </div>
+
+                    <!-- PARTIES TABLE -->
+                    <div class="doc-parties-grid">
+                        <div class="party-col">
+                            <strong id="docPartyALabel">FIRST PARTY (CLIENT):</strong>
+                            <p id="docPartyAName">Dr. Ronald Kiggundu (Client)</p>
+                            <small style="color: #64748b;">National ID / Reg: CM9102834-UG</small>
+                        </div>
+                        <div class="party-col">
+                            <strong id="docPartyBLabel">SECOND PARTY (CONTRACTOR):</strong>
+                            <p id="docPartyBName">Apex Prime Engineering Ltd (Contractor)</p>
+                            <small style="color: #64748b;">Registration / License: URA-CON-88492</small>
+                        </div>
+                    </div>
+
+                    <!-- PREAMBLE -->
+                    <div class="doc-section">
+                        <h4>1. PURPOSE & INTENT</h4>
+                        <p id="docClausePurpose">
+                            This binding agreement is made between the parties above to connect and govern the real
+                            estate project described as:
+                            <strong id="docPropertyMention">Plot 84, Block 214, Kololo Hill Luxury Villa
+                                Development</strong>.
+                            The parties mutually agree to fulfill all covenants, quality standards, and ethical codes
+                            set forth in this instrument.
+                        </p>
+                    </div>
+
+                    <!-- TERMS & PAYMENT -->
+                    <div class="doc-section">
+                        <h4>2. CONSIDERATION, FEES & PAYMENT MILESTONES</h4>
+                        <p id="docClausePayment">
+                            The total agreed consideration for the performance of this agreement is
+                            <strong id="docFinancialMention">UGX 450,000,000 (Four Hundred Fifty Million UGX)</strong>.
+                            Payment shall be executed in staggered milestone tranches:
+                            <br>
+                            • <strong>Phase 1 (Site Prep & Substructure):</strong> 25% upon completion of excavation and
+                            foundation casting.
+                            <br>
+                            • <strong>Phase 2 (Superstructure & Roofing):</strong> 35% upon structural framing,
+                            brickwork, and roof beam lock.
+                            <br>
+                            • <strong>Phase 3 (Finishing, MEP & Handover):</strong> 30% upon tiling, electrical,
+                            plumbing, and painting.
+                            <br>
+                            • <strong>Phase 4 (Retention Escrow):</strong> 10% retained for a 90-day defect liability
+                            warranty period.
+                        </p>
+                    </div>
+
+                    <!-- OBLIGATIONS & PERFORMANCE -->
+                    <div class="doc-section">
+                        <h4>3. COVENANTS & PROFESSIONAL RESPONSIBILITIES</h4>
+                        <p id="docClauseCovenants">
+                            (a) The Contractor guarantees that all materials and workmanship comply strictly with Uganda
+                            National Bureau of Standards (UNBS) and international architectural specifications.
+                            <br>
+                            (b) The Client agrees to provide unhindered site access and approve certified milestone
+                            valuations within 5 business days of architect sign-off.
+                            <br>
+                            (c) Any modification or variation in scope must be documented in writing and approved in the
+                            EOTO Connectivity Portal.
+                        </p>
+                    </div>
+
+                    <!-- DISPUTE RESOLUTION & JURISDICTION -->
+                    <div class="doc-section">
+                        <h4>4. GOVERNING LAW & DIGITAL AUTHENTICITY</h4>
+                        <p>
+                            This instrument is governed by the laws of Uganda and the East African Community.
+                            The parties agree that digital signatures applied through the EOTO Properties platform carry
+                            full legal equivalence
+                            to ink signatures under the Electronic Transactions Act.
+                        </p>
+                    </div>
+
+                    <!-- SIGNATURES BLOCK -->
+                    <div class="signatures-block">
+                        <!-- PARTY A SIGNATURE -->
+                        <div class="sig-box">
+                            <div class="sig-box-title" id="sigBoxTitleA">CLIENT / FIRST PARTY SIGNATURE</div>
+                            <div class="sig-preview" id="partyASigPreview">
+                                <span>Dr. R. Kiggundu</span>
+                            </div>
+                            <div class="sig-meta">
+                                <span id="partyASigDate">Signed: 13/10/2026</span>
+                                <span style="color: #1f8a70;">✓ Verified</span>
+                            </div>
+                        </div>
+
+                        <!-- PARTY B SIGNATURE -->
+                        <div class="sig-box">
+                            <div class="sig-box-title" id="sigBoxTitleB">CONTRACTOR / SECOND PARTY SIGNATURE</div>
+                            <div class="sig-preview" id="partyBSigPreview">
+                                <span
+                                    style="color: #94a3b8; font-style: italic; font-size: 0.95rem; font-family: sans-serif;">
+                                    Pending Counter-Signature
+                                </span>
+                            </div>
+                            <div class="sig-meta">
+                                <span id="partyBSigDate">Status: Ready to sign</span>
+                                <span style="color: #ea580c;" id="partyBSigStatusTag">⏳ Pending</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- OFFICIAL STAMP / WATERMARK -->
+                    <div
+                        style="margin-top: 35px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 15px; font-size: 0.8rem; color: #64748b; font-family: sans-serif;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.4rem;">🛡️</span>
+                            <span>Digitally Notarized & Logged in Eoto Real Estate Ledger</span>
+                        </div>
+                        <div>
+                            Security Hash: <code>7f8a9e2d-4b11-4821-bc01-eoto9042a</code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ================= SHARE MODAL ================= -->
+    <div class="modal-overlay" id="shareAgreementModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Share Agreement With Counterparty</h3>
+                <button class="modal-close-btn" onclick="closeShareModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <p style="color: #475569; margin-bottom: 14px; font-size: 0.92rem;">
+                    Send this private, secure link to your counterparty (Tenant, Broker, Client, or Construction Firm)
+                    so they can review and add their digital signature:
+                </p>
+
+                <div style="display: flex; gap: 8px; margin-bottom: 20px;">
+                    <input type="text" id="shareableLinkInput" readonly
+                        value="https://eotoproperties.com/agreements.html?ref=EOTO-AGR-2026-9042&sign=true"
+                        style="flex: 1; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-family: monospace; font-size: 0.85rem; background: #f8fafc;">
+                    <button class="button" style="padding: 12px 18px;" onclick="copyShareableLink()">
+                        📋 Copy Link
+                    </button>
+                </div>
+
+                <div
+                    style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 14px; color: #1e40af; font-size: 0.86rem;">
+                    <strong>💡 Automatic Notification:</strong>
+                    A copy has also been sent to your Eoto Dashboard under <em>Shared Agreements</em>. Both parties will
+                    receive an alert once counter-signing is finalized.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary-sm" style="padding: 10px 24px;" onclick="closeShareModal()">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TOAST NOTIFICATION ================= -->
+    <div class="toast-msg" id="toastMessage">
+        <span>✓</span>
+        <span id="toastText">Action completed successfully!</span>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-box">
+                <div class="logo">
+                    EOTO <span>PROPERTIES</span>
+                </div>
+                <p>
+                    Bridging developers, landlords, brokers, and tenants with instant connection and automated legal
+                    agreements.
+                </p>
+            </div>
+
+            <div class="footer-box">
+                <h4>Contracts Available</h4>
+                <a href="javascript:void(0)" onclick="switchAgreementType('construction')">Building & Construction
+                    Agreement</a>
+                <a href="javascript:void(0)" onclick="switchAgreementType('brokerage')">Broker Exclusive Mandate</a>
+                <a href="javascript:void(0)" onclick="switchAgreementType('lease')">Residential Tenancy Lease</a>
+                <a href="javascript:void(0)" onclick="switchAgreementType('maintenance')">Facility Management SLA</a>
+            </div>
+
+            <div class="footer-box">
+                <h4>Quick Navigation</h4>
+                <a href="connectivity.html">🌐 Connectivity Hub</a>
+                <a href="properties.html">🏠 Properties & Construction Packages</a>
+                <a href="dashboard.html">📊 Unified Dashboard</a>
+                <a href="about.html">ℹ️ About Eoto</a>
+            </div>
+
+            <div class="footer-box">
+                <h4>Eoto Support</h4>
+                <p>Plot 42 Kampala Road, Uganda</p>
+                <p>+256 700 000 000</p>
+                <p>legal@eotoproperties.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© <span id="year"></span> Eoto Real Estate Connectivity Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="css/js/script.js"></script>
+</body>
+
+</html>

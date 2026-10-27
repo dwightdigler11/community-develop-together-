@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties, Projects & Construction Directory | Eoto Properties</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">
+        EOTO <span>CONNECTIVITY PLATFORM</span>
+    </div>
+
+    <button class="menu-button" id="menuButton">
+        ☰
+    </button>
+
+    <nav id="navigation">
+        <a href="home.html">Home</a>
+        <a href="connectivity.html">🌐 Connectivity Hub</a>
+        <a href="properties.html" class="active nav-pill-highlight">Properties & Projects</a>
+        <a href="agreements.html">📜 Digital Agreements</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="signout.html">Sign Out</a>
+    </nav>
+</header>
+
+<section class="page-banner">
+    <p class="small-title">
+        REAL ESTATE CONNECTIVITY DIRECTORY
+    </p>
+    <h1>
+        Properties, Building Packages & Verified Partners
+    </h1>
+    <p>
+        Browse turnkey properties for sale, rental homes, custom construction blueprints, and link directly with verified Construction Firms, Brokers, and Landlords.
+    </p>
+</section>
+
+<section class="section">
+    <!-- FILTER BAR -->
+    <div class="filter">
+        <input type="text" id="propertySearch" placeholder="Search by name, location, or contractor...">
+
+        <select id="propertyType">
+            <option value="all">All Ecosystem Listings</option>
+            <option value="build">🏗️ Construction & Build Packages</option>
+            <option value="sale">💼 For Sale (Broker Represented)</option>
+            <option value="rent">🔑 For Rent (Direct Landlord)</option>
+            <option value="land">🌿 Land Ready to Build</option>
+        </select>
+    </div>
+
+    <div class="property-results-heading" aria-live="polite">
+        <div>
+            <p class="small-title">FILTERED DIRECTORY</p>
+            <h2 id="propertyResultsTitle">All Listings & Building Packages</h2>
+        </div>
+        <p id="propertyResultsCount" style="color: var(--muted); font-size: 0.9rem;"></p>
+    </div>
+
+    <div class="property-container" id="propertyContainer">
+
+        <!-- CARD 1: BUILD PACKAGE (CONSTRUCTION COMPANY) -->
+        <div class="property-card property-card--build animation" data-type="build" data-name="apex prime kololo villa custom construction build house">
+            <div class="property-image image-one" style="position: relative;">
+                <img src="image/villa%201%20kampala%20division.webp" alt="Kololo Villa Build Package">
+                <span style="position: absolute; top: 12px; left: 12px; background: #ea580c; color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">
+                    🏗️ BUILD ON YOUR PLOT
+                </span>
+            </div>
+            <div class="property-details">
+                <span class="pillar-relationship-tag" style="background: #ffedd5; color: #c2410c; margin-bottom: 6px;">
+                    Contractor: Apex Prime Engineering
+                </span>
+                <h3>Turnkey Kololo 4-Bed Villa Build</h3>
+                <p>Architectural blueprint + turnkey construction anywhere in Uganda.</p>
+                <h4 style="color: #ea580c;">From UGX 320,000,000</h4>
+                <div class="property-features">
+                    🛏 4 Beds &nbsp;&nbsp; 🚿 4 Baths &nbsp;&nbsp; 📐 380 sqm
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: 14px;">
+                    <a href="infos.html" class="btn-secondary-sm" style="flex: 1; text-align: center;">View Plans →</a>
+                    <a href="agreements.html?type=construction&partner=Apex%20Prime%20Engineering" class="btn-connect-sm" style="flex: 1; background: #ea580c;">
+                        🔨 Build Agreement
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 2: FOR SALE (BROKER REPRESENTATION) -->
+        <div class="property-card property-card--sale animation" data-type="sale" data-name="modern kampala villa for sale nsambya makindye">
+            <div class="property-image image-one" style="position: relative;">
+                <img src="image/villa%201%20kampala%20division.webp" alt="Kampala Modern Villa">
+                <span style="position: absolute; top: 12px; left: 12px; background: #2563eb; color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">
+                    💼 FOR SALE (BROKER MANDATE)
+                </span>
+            </div>
+            <div class="property-details">
+                <span class="pillar-relationship-tag" style="background: #dbeafe; color: #1d4ed8; margin-bottom: 6px;">
+                    Broker: Victoria Premier Realty
+                </span>
+                <h3>Modern Kampala Hill Villa</h3>
+                <p>Nsambya - Makindye Hill, Kampala</p>
+                <h4>UGX 450,000,000</h4>
+                <div class="property-features">
+                    🛏 4 Beds &nbsp;&nbsp; 🚿 3 Baths &nbsp;&nbsp; 🚗 2 Garages
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: 14px;">
+                    <a href="infos.html" class="btn-secondary-sm" style="flex: 1; text-align: center;">Details →</a>
+                    <a href="agreements.html?type=brokerage&partner=Victoria%20Premier%20Realty" class="btn-connect-sm" style="flex: 1; background: #2563eb;">
+                        🤝 Broker Mandate
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 3: FOR RENT (DIRECT LANDLORD) -->
+        <div class="property-card property-card--rent animation" data-type="rent" data-name="entebbe lake home for rent rooftop relaxation kasangati">
+            <div class="property-image image-two" style="position: relative;">
+                <img src="image/villa%202%20kampala%20division%20classic.webp" alt="Entebbe Lake Home">
+                <span style="position: absolute; top: 12px; left: 12px; background: #0d9488; color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">
+                    🔑 FOR RENT (DIRECT LANDLORD)
+                </span>
+            </div>
+            <div class="property-details">
+                <span class="pillar-relationship-tag" style="background: #ccfbf1; color: #0f766e; margin-bottom: 6px;">
+                    Landlord: Hajji Ssemwanga
+                </span>
+                <h3>Lakeside Terrace & Penthouse</h3>
+                <p>Entebbe Lake Crescent / Kasangati</p>
+                <h4 style="color: #0d9488;">UGX 4,500,000 / Month</h4>
+                <div class="property-features">
+                    🛏 3 Beds &nbsp;&nbsp; 🚿 3 Baths &nbsp;&nbsp; 🚗 2 Parking
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: 14px;">
+                    <a href="infos.html" class="btn-secondary-sm" style="flex: 1; text-align: center;">Details →</a>
+                    <a href="agreements.html?type=lease&partner=Hajji%20Ssemwanga" class="btn-connect-sm" style="flex: 1; background: #0d9488;">
+                        📜 Tenancy Lease
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 4: TITLED LAND (READY TO BUILD) -->
+        <div class="property-card property-card--land animation" data-type="land" data-name="naalya residential land plot ready to build">
+            <div class="property-image image-three" style="position: relative;">
+                <img src="image/villa%203%20kampala%20division%20morden.webp" alt="Naalya Land">
+                <span style="position: absolute; top: 12px; left: 12px; background: #15803d; color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">
+                    🌿 TITLED LAND TO BUILD
+                </span>
+            </div>
+            <div class="property-details">
+                <span class="pillar-relationship-tag" style="background: #dcfce7; color: #166534; margin-bottom: 6px;">
+                    Linked: Construction Ready
+                </span>
+                <h3>Naalya Residential Titled Plot</h3>
+                <p>Naalya Estate, Kampala</p>
+                <h4>UGX 180,000,000</h4>
+                <div class="property-features">
+                    📐 50 × 100 ft &nbsp;&nbsp; 📜 Mailo Title &nbsp;&nbsp; ⚡ Water & Power
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: 14px;">
+                    <a href="infos.html" class="btn-secondary-sm" style="flex: 1; text-align: center;">Details →</a>
+                    <a href="connectivity.html#matchmaker" class="btn-connect-sm" style="flex: 1; background: #ea580c;">
+                        🏗️ Link Builder
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 5: EXECUTIVE RENTAL LIVING -->
+        <div class="property-card property-card--rent animation" data-type="rent" data-name="bugolobi executive house rental for rent">
+            <div class="property-image image-four" style="position: relative;">
+                <img src="image/villa%204%20kampala%20division%20uptown.webp" alt="Bugolobi House">
+                <span style="position: absolute; top: 12px; left: 12px; background: #0d9488; color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">
+                    🔑 FOR RENT (MANAGED)
+                </span>
+            </div>
+            <div class="property-details">
+                <span class="pillar-relationship-tag" style="background: #ccfbf1; color: #0f766e; margin-bottom: 6px;">
+                    Manager: Eoto Pro-Care Facility
+                </span>
+                <h3>Bugolobi Executive Townhouse</h3>
+                <p>Located in Bugolobi, Kampala</p>
+                <h4 style="color: #0d9488;">UGX 5,000,000 / Month</h4>
+                <div class="property-features">
+                    🛏 5 Beds &nbsp;&nbsp; 🚿 4 Baths &nbsp;&nbsp; 🚗 2 Garages
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: 14px;">
+                    <a href="infos.html" class="btn-secondary-sm" style="flex: 1; text-align: center;">Details →</a>
+                    <a href="agreements.html?type=lease" class="btn-connect-sm" style="flex: 1; background: #0d9488;">
+                        📜 Tenancy Lease
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 6: BUSABALA HOUSE FOR SALE -->
+        <div class="property-card property-card--sale animation" data-type="sale" data-name="busabala private home on sale houses">
+            <div class="property-image image-four" style="position: relative;">
+                <img src="image/villa%205%20kampala%20division%20clean%20tower.webp" alt="Busabala Home">
+                <span style="position: absolute; top: 12px; left: 12px; background: #2563eb; color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">
+                    💼 FOR SALE (BROKER REPRESENTED)
+                </span>
+            </div>
+            <div class="property-details">
+                <span class="pillar-relationship-tag" style="background: #dbeafe; color: #1d4ed8; margin-bottom: 6px;">
+                    Broker: Crested Crane Associates
+                </span>
+                <h3>Busabala Private Retreat Home</h3>
+                <p>Located in Busabala, Wakiso / Kampala</p>
+                <h4>UGX 380,000,000</h4>
+                <div class="property-features">
+                    🛏 3 Beds &nbsp;&nbsp; 🚿 2 Baths &nbsp;&nbsp; 🚗 2 Garages
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: 14px;">
+                    <a href="infos.html" class="btn-secondary-sm" style="flex: 1; text-align: center;">Details →</a>
+                    <a href="agreements.html?type=brokerage" class="btn-connect-sm" style="flex: 1; background: #2563eb;">
+                        🤝 Broker Mandate
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- VILLA GALLERY -->
+<section class="section villa-gallery-section">
+    <p class="small-title">EOTO ARCHITECTURAL SHOWCASE</p>
+    <h4>Feel The Difference</h4>
+    <h2>Select Your Architectural Style</h2>
+
+    <div class="villa-gallery">
+        <img src="image/feal%20the%20star.jpg" alt="Luxury Villa" loading="lazy">
+        <img src="image/love%20is%20in%20the%20air.webp" alt="Villa Air" loading="lazy">
+        <img src="image/villa%201%20kampala%20division.webp" alt="Villa 1" loading="lazy">
+        <img src="image/villa%202%20kampala%20division%20classic.webp" alt="Villa 2" loading="lazy">
+        <img src="image/villa%203%20kampala%20division%20morden.webp" alt="Villa 3" loading="lazy">
+        <img src="image/villa%204%20kampala%20division%20uptown.webp" alt="Villa 4" loading="lazy">
+        <img src="image/villa%205%20kampala%20division%20clean%20tower.webp" alt="Villa 5" loading="lazy">
+        <img src="image/Glorioso Mercado.jpg" alt="Glorioso Mercado" loading="lazy">
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-box">
+            <div class="logo">
+                EOTO <span>PROPERTIES</span>
+            </div>
+            <p>
+                Connected Real Estate Solutions: Building, Marketing, Selling, Renting, and Maintaining.
+            </p>
+        </div>
+
+        <div class="footer-box">
+            <h4>Direct Entity Links</h4>
+            <a href="connectivity.html#matchmaker">🏗️ Link With Construction Company</a>
+            <a href="connectivity.html#matchmaker">💼 Link With Real Estate Broker</a>
+            <a href="connectivity.html#matchmaker">🔑 Link With Property Landlord</a>
+            <a href="agreements.html">📜 Digital Legal Agreements</a>
+        </div>
+
+        <div class="footer-box">
+            <h4>Quick Pages</h4>
+            <a href="home.html">Home</a>
+            <a href="about.html">About Eoto</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+
+        <div class="footer-box">
+            <h4>Connect</h4>
+            <p>Plot 42 Kampala Road, Uganda</p>
+            <p>support@eotoproperties.com</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© <span id="year"></span> Eoto Real Estate Connectivity Platform.</p>
+    </div>
+</footer>
+
+<script src="css/js/script.js"></script>
+</body>
+</html>

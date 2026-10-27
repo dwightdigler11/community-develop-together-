@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Connectivity Hub | Eoto Properties</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <div class="logo">
+        EOTO <span>CONNECTIVITY HUB</span>
+    </div>
+
+    <button class="menu-button" id="menuButton">
+        ☰
+    </button>
+
+    <nav id="navigation">
+        <a href="home.html">Home</a>
+        <a href="connectivity.html" class="active nav-pill-highlight">🌐 Connectivity Hub</a>
+        <a href="properties.html">Properties & Projects</a>
+        <a href="agreements.html">📜 Digital Agreements</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="signout.html">Sign Out</a>
+    </nav>
+</header>
+
+<!-- ================= HERO BANNER ================= -->
+<section class="connectivity-banner">
+    <div class="small-title" style="color: var(--yellow); letter-spacing: 2px;">INTERCONNECTED REAL ESTATE ECOSYSTEM</div>
+    <h1>Connect Every Entity in <span>One Unified Platform</span></h1>
+    <p>
+        Seamlessly linking <strong>Individuals wanting to Build</strong> with <strong>Construction Companies</strong>, 
+        <strong>Landlords wanting to Sell</strong> with <strong>Licensed Brokers</strong>, 
+        <strong>Tenants</strong> directly with <strong>Property Owners</strong>, and 
+        <strong>Landlords</strong> with <strong>Maintenance Teams</strong> — backed by shareable digital legal agreements.
+    </p>
+
+    <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="#matchmaker" class="button" style="box-shadow: 0 4px 20px rgba(31, 138, 112, 0.4);">
+            ⚡ Find My Partner Link
+        </a>
+        <a href="agreements.html" class="button second-button" style="background: rgba(255,255,255,0.15); border: 1px solid var(--yellow); color: #fff;">
+            📜 Draft Digital Agreement
+        </a>
+    </div>
+</section>
+
+<!-- ================= THE 4 CORE CONNECTIVITY PILLARS ================= -->
+<section class="pillars-grid">
+    <!-- PILLAR 1: BUILD -->
+    <div class="pillar-card pillar-build">
+        <div class="pillar-icon-box">🏗️</div>
+        <span class="pillar-relationship-tag">Client ⟷ Construction Company</span>
+        <h3>Build With Construction Firms</h3>
+        <p>
+            Have land or a dream home concept? Connect with vetted civil engineering and construction firms. 
+            Review architectural portfolios, receive cost-per-square-meter estimates, and track structural milestones.
+        </p>
+        <ul class="pillar-features-list">
+            <li>Architectural & Blueprint matching</li>
+            <li>Cost estimation & BOQ breakdown</li>
+            <li>Milestone-based building contracts</li>
+            <li>Escrow-backed phase sign-offs</li>
+        </ul>
+        <button class="pillar-action-btn" onclick="openConnectModal('build', 'Construction Firms')">
+            🔨 Connect With Construction Firms
+        </button>
+    </div>
+
+    <!-- PILLAR 2: SELL -->
+    <div class="pillar-card pillar-sell">
+        <div class="pillar-icon-box">🤝</div>
+        <span class="pillar-relationship-tag">Landlord / Owner ⟷ Broker</span>
+        <h3>Sell Properties With Top Brokers</h3>
+        <p>
+            Landlords and property owners can link with verified real estate brokers for staging, professional 
+            marketing, valuation, and high-visibility buyer sourcing with legal exclusivity agreements.
+        </p>
+        <ul class="pillar-features-list">
+            <li>Certified property valuation</li>
+            <li>Multi-channel marketing campaigns</li>
+            <li>Verified buyer background screening</li>
+            <li>Standard Brokerage Representation Agreements</li>
+        </ul>
+        <button class="pillar-action-btn" onclick="openConnectModal('sell', 'Licensed Brokers')">
+            📈 Link With Real Estate Broker
+        </button>
+    </div>
+
+    <!-- PILLAR 3: RENT & LEASE -->
+    <div class="pillar-card pillar-rent">
+        <div class="pillar-icon-box">🔑</div>
+        <span class="pillar-relationship-tag">Tenant ⟷ Landlord / Owner</span>
+        <h3>Rent & Lease Directly</h3>
+        <p>
+            Looking for a home or commercial unit? Connect directly with verified property owners or authorized leasing 
+            managers, arrange inspections, and sign legally binding digital lease agreements.
+        </p>
+        <ul class="pillar-features-list">
+            <li>Direct landlord-tenant chat</li>
+            <li>Virtual & in-person viewing booking</li>
+            <li>Deposit & monthly rent terms</li>
+            <li>Instant shared residential tenancy lease</li>
+        </ul>
+        <button class="pillar-action-btn" onclick="openConnectModal('rent', 'Landlords & Property Owners')">
+            🏠 Connect With Landlords
+        </button>
+    </div>
+
+    <!-- PILLAR 4: MAINTAIN -->
+    <div class="pillar-card pillar-maintain">
+        <div class="pillar-icon-box">🛠️</div>
+        <span class="pillar-relationship-tag">Landlord ⟷ Broker / Facility Team</span>
+        <h3>Maintain & Manage Properties</h3>
+        <p>
+            Maintain hassle-free properties by linking landlords to property managers and skilled facility contractors 
+            for scheduled upkeep, plumbing, electrical, and 24/7 tenant repair response.
+        </p>
+        <ul class="pillar-features-list">
+            <li>Instant work-order ticket dispatch</li>
+            <li>Pre-vetted plumbers, electricians & technicians</li>
+            <li>Automated condition inspection reports</li>
+            <li>Property Maintenance SLA Agreements</li>
+        </ul>
+        <button class="pillar-action-btn" onclick="openConnectModal('maintain', 'Maintenance & Facility Managers')">
+            ⚙️ Request Maintenance Link
+        </button>
+    </div>
+</section>
+
+<!-- ================= VISUAL RELATIONSHIP MAP ================= -->
+<section class="relationship-flow-section">
+    <div class="flow-title">
+        <p class="small-title">HOW ENTITIES COLLABORATE</p>
+        <h2>Interactive Connectivity Relationship Matrix</h2>
+        <p>Every entity links with its ideal partner through verified agreements and clear milestone execution.</p>
+    </div>
+
+    <div class="flow-matrix">
+        <!-- Relationship 1 -->
+        <div class="flow-item">
+            <div class="flow-parties">
+                <div class="party-bubble">👤 Land Owner / Client</div>
+                <div class="flow-arrow-badge">
+                    <span>⇄</span>
+                    <span>BUILD</span>
+                </div>
+                <div class="party-bubble" style="border-color: #ea580c; color: #ea580c;">🏗️ Construction Firm</div>
+            </div>
+            <h4>House Construction & Contracting</h4>
+            <p>
+                Client specifies architectural requirements. The construction company submits milestone pricing and bill of quantities (BOQ). 
+                Parties sign a joint Construction Contract.
+            </p>
+            <div class="flow-agreement-preview">
+                📄 Shared Agreement: Construction & Development Contract
+            </div>
+        </div>
+
+        <!-- Relationship 2 -->
+        <div class="flow-item">
+            <div class="flow-parties">
+                <div class="party-bubble">🏠 Landlord / Owner</div>
+                <div class="flow-arrow-badge">
+                    <span>⇄</span>
+                    <span>SELL</span>
+                </div>
+                <div class="party-bubble" style="border-color: #2563eb; color: #2563eb;">💼 Licensed Broker</div>
+            </div>
+            <h4>Property Marketing & Sales Mandate</h4>
+            <p>
+                Landlord gives marketing mandate to broker. The broker lists the property, stages viewings, handles buyer negotiations, 
+                and secures escrow deposits.
+            </p>
+            <div class="flow-agreement-preview">
+                📄 Shared Agreement: Exclusive Listing & Brokerage Mandate
+            </div>
+        </div>
+
+        <!-- Relationship 3 -->
+        <div class="flow-item">
+            <div class="flow-parties">
+                <div class="party-bubble">🛋️ Tenant / Renter</div>
+                <div class="flow-arrow-badge">
+                    <span>⇄</span>
+                    <span>LEASE</span>
+                </div>
+                <div class="party-bubble" style="border-color: #0d9488; color: #0d9488;">🏢 Property Landlord</div>
+            </div>
+            <h4>Residential & Commercial Tenancy</h4>
+            <p>
+                Tenant views properties, completes credit/reference checks, and communicates directly with landlord to agree upon rent terms and move-in date.
+            </p>
+            <div class="flow-agreement-preview">
+                📄 Shared Agreement: Standard Residential Tenancy Lease
+            </div>
+        </div>
+
+        <!-- Relationship 4 -->
+        <div class="flow-item">
+            <div class="flow-parties">
+                <div class="party-bubble">🏢 Landlord / Property</div>
+                <div class="flow-arrow-badge">
+                    <span>⇄</span>
+                    <span>MAINTAIN</span>
+                </div>
+                <div class="party-bubble" style="border-color: #7c3aed; color: #7c3aed;">🔧 Broker / Facility Pro</div>
+            </div>
+            <h4>Property Management & Facility Upkeep</h4>
+            <p>
+                Landlord delegates property maintenance to facility brokers or certified technicians who handle emergency repairs, tenant complaints, and renovations.
+            </p>
+            <div class="flow-agreement-preview">
+                📄 Shared Agreement: Facility Management & Maintenance SLA
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SMART MATCHMAKER WIDGET ================= -->
+<section class="matchmaker-widget" id="matchmaker">
+    <div class="matchmaker-header">
+        <p class="small-title" style="color: var(--yellow);">AI-POWERED RELATIONSHIP MATCHER</p>
+        <h2>Instant Real Estate <span>Smart Matchmaker</span></h2>
+        <p>Tell us who you are and what you need — we will immediately connect you with verified partners in our network.</p>
+    </div>
+
+    <form class="matchmaker-form" id="matchmakerForm">
+        <div class="match-field">
+            <label for="userRole">I am a...</label>
+            <select id="userRole">
+                <option value="builder">Property Dreamer / Want to Build</option>
+                <option value="landlord_sell">Landlord / Owner Wanting to Sell</option>
+                <option value="tenant">Tenant / Seeking to Rent or Lease</option>
+                <option value="landlord_maintain">Landlord / Needing Maintenance</option>
+                <option value="construction">Construction Company / General Contractor</option>
+                <option value="broker">Licensed Real Estate Broker</option>
+            </select>
+        </div>
+
+        <div class="match-field">
+            <label for="needGoal">I want to...</label>
+            <select id="needGoal">
+                <option value="build_house">Build a Modern House / Commercial Project</option>
+                <option value="hire_broker">Hire a Broker to Sell My Property</option>
+                <option value="rent_home">Rent / Lease an Apartment or Villa</option>
+                <option value="hire_maintenance">Hire Property Maintenance & Facility Services</option>
+                <option value="find_building_clients">Find Clients Who Want to Build</option>
+                <option value="find_properties_to_sell">Find Landlords Who Want to Sell</option>
+            </select>
+        </div>
+
+        <div class="match-field">
+            <label for="locationFilter">Target Location</label>
+            <select id="locationFilter">
+                <option value="all">All Locations (Uganda / East Africa)</option>
+                <option value="kampala">Kampala (Nakasero, Kololo, Muyenga)</option>
+                <option value="entebbe">Entebbe & Lake Victoria Zone</option>
+                <option value="wakiso">Wakiso & Busabala</option>
+                <option value="jinja">Jinja & Eastern Hub</option>
+            </select>
+        </div>
+
+        <button type="submit" class="match-submit-btn">
+            🔍 Find Matches & Connect
+        </button>
+    </form>
+
+    <!-- LIVE MATCH RESULTS -->
+    <div style="margin-top: 30px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h3 style="color: #fff; font-size: 1.25rem;">
+                <span id="matchResultsCount">6</span> Verified Partners Ready to Link
+            </h3>
+            <span style="font-size: 0.85rem; color: #94a3b8;">Status: Active & Verified</span>
+        </div>
+
+        <div class="match-results-container" id="matchResultsContainer">
+            <!-- RESULT 1: Construction Firm -->
+            <div class="match-result-card" data-category="build">
+                <div class="match-card-top">
+                    <div class="match-avatar" style="background: #fff7ed; color: #ea580c;">🏗️</div>
+                    <div class="match-meta">
+                        <h4>Apex Prime Engineering Ltd</h4>
+                        <p>Grade A General Contractor & Architects • Kampala</p>
+                    </div>
+                </div>
+                <div class="match-stats-row">
+                    <div>
+                        <strong>34+</strong>
+                        <span>Completed Villas</span>
+                    </div>
+                    <div>
+                        <strong>4.9 ★</strong>
+                        <span>Client Rating</span>
+                    </div>
+                    <div>
+                        <strong>UGX 1.8M/sqm</strong>
+                        <span>Avg Build Rate</span>
+                    </div>
+                </div>
+                <p style="font-size: 0.86rem; color: #475569;">
+                    Specialized in modern residential villas, turnkey residential estates, and commercial structures. Full BOQ and milestone guarantee.
+                </p>
+                <div class="match-card-actions">
+                    <button class="btn-connect-sm" onclick="initiateDirectLink('Apex Prime Engineering Ltd', 'Construction Company', 'Build Project')">
+                        🔨 Link & Request Build
+                    </button>
+                    <a href="agreements.html?type=construction&partner=Apex%20Prime%20Engineering" class="btn-view-profile-sm">
+                        📄 Agreement
+                    </a>
+                </div>
+            </div>
+
+            <!-- RESULT 2: Real Estate Broker -->
+            <div class="match-result-card" data-category="sell">
+                <div class="match-card-top">
+                    <div class="match-avatar" style="background: #eff6ff; color: #2563eb;">💼</div>
+                    <div class="match-meta">
+                        <h4>Victoria Premier Realty & Brokers</h4>
+                        <p>Licensed Exclusive Brokerage Firm • Kampala & Entebbe</p>
+                    </div>
+                </div>
+                <div class="match-stats-row">
+                    <div>
+                        <strong>88+</strong>
+                        <span>Properties Sold</span>
+                    </div>
+                    <div>
+                        <strong>4.8 ★</strong>
+                        <span>Trust Score</span>
+                    </div>
+                    <div>
+                        <strong>21 Days</strong>
+                        <span>Avg Sale Time</span>
+                    </div>
+                </div>
+                <p style="font-size: 0.86rem; color: #475569;">
+                    Expert staging, digital 3D tours, and high-net-worth buyer syndicate. Ready to market residential villas and commercial land for landlords.
+                </p>
+                <div class="match-card-actions">
+                    <button class="btn-connect-sm" style="background: #2563eb;" onclick="initiateDirectLink('Victoria Premier Realty', 'Licensed Broker', 'Sell Mandate')">
+                        🤝 Link With Broker
+                    </button>
+                    <a href="agreements.html?type=brokerage&partner=Victoria%20Premier%20Realty" class="btn-view-profile-sm">
+                        📄 Agreement
+                    </a>
+                </div>
+            </div>
+
+            <!-- RESULT 3: Verified Landlord with Available Rentals -->
+            <div class="match-result-card" data-category="rent">
+                <div class="match-card-top">
+                    <div class="match-avatar" style="background: #f0fdfa; color: #0d9488;">🏢</div>
+                    <div class="match-meta">
+                        <h4>Hajji Ssemwanga Estates (Landlord)</h4>
+                        <p>Verified Property Owner • Nakasero & Kololo</p>
+                    </div>
+                </div>
+                <div class="match-stats-row">
+                    <div>
+                        <strong>12 Units</strong>
+                        <span>Available Now</span>
+                    </div>
+                    <div>
+                        <strong>Direct</strong>
+                        <span>No Hidden Fees</span>
+                    </div>
+                    <div>
+                        <strong>UGX 3.5M/mo</strong>
+                        <span>Starting Rent</span>
+                    </div>
+                </div>
+                <p style="font-size: 0.86rem; color: #475569;">
+                    Modern luxury apartments and executive family townhouses with Lake and Hill views. Flexible 6-12 month lease agreements.
+                </p>
+                <div class="match-card-actions">
+                    <button class="btn-connect-sm" style="background: #0d9488;" onclick="initiateDirectLink('Hajji Ssemwanga Estates', 'Property Landlord', 'Tenancy Lease')">
+                        🔑 Link & Request Lease
+                    </button>
+                    <a href="agreements.html?type=lease&partner=Hajji%20Ssemwanga%20Estates" class="btn-view-profile-sm">
+                        📄 Agreement
+                    </a>
+                </div>
+            </div>
+
+            <!-- RESULT 4: Facility & Maintenance Contractor -->
+            <div class="match-result-card" data-category="maintain">
+                <div class="match-card-top">
+                    <div class="match-avatar" style="background: #f5f3ff; color: #7c3aed;">🔧</div>
+                    <div class="match-meta">
+                        <h4>Eoto Pro-Care Facility Managers</h4>
+                        <p>Certified Maintenance & Property Care Consortium</p>
+                    </div>
+                </div>
+                <div class="match-stats-row">
+                    <div>
+                        <strong>24/7</strong>
+                        <span>Emergency Service</span>
+                    </div>
+                    <div>
+                        <strong>140+</strong>
+                        <span>Managed Units</span>
+                    </div>
+                    <div>
+                        <strong>98%</strong>
+                        <span>On-Time SLA</span>
+                    </div>
+                </div>
+                <p style="font-size: 0.86rem; color: #475569;">
+                    Complete landlord property care: routine plumbing/electrical audits, paint refresh, security system maintenance, and tenant dispatch.
+                </p>
+                <div class="match-card-actions">
+                    <button class="btn-connect-sm" style="background: #7c3aed;" onclick="initiateDirectLink('Eoto Pro-Care Facility Managers', 'Maintenance Provider', 'Maintenance SLA')">
+                        ⚙️ Link For Maintenance
+                    </button>
+                    <a href="agreements.html?type=maintenance&partner=Eoto%20Pro-Care%20Facility%20Managers" class="btn-view-profile-sm">
+                        📄 Agreement
+                    </a>
+                </div>
+            </div>
+
+            <!-- RESULT 5: Construction Firm -->
+            <div class="match-result-card" data-category="build">
+                <div class="match-card-top">
+                    <div class="match-avatar" style="background: #fff7ed; color: #ea580c;">🏗️</div>
+                    <div class="match-meta">
+                        <h4>Kampala Heritage Builders & Dev</h4>
+                        <p>Eco-Friendly Construction & Modern Masonry</p>
+                    </div>
+                </div>
+                <div class="match-stats-row">
+                    <div>
+                        <strong>28+</strong>
+                        <span>Projects</span>
+                    </div>
+                    <div>
+                        <strong>4.7 ★</strong>
+                        <span>Rating</span>
+                    </div>
+                    <div>
+                        <strong>UGX 1.6M/sqm</strong>
+                        <span>Build Rate</span>
+                    </div>
+                </div>
+                <p style="font-size: 0.86rem; color: #475569;">
+                    Expert home construction company specializing in smart solar homes, brickwork villas, and custom architectural finishes.
+                </p>
+                <div class="match-card-actions">
+                    <button class="btn-connect-sm" onclick="initiateDirectLink('Kampala Heritage Builders', 'Construction Company', 'Build Project')">
+                        🔨 Link & Request Build
+                    </button>
+                    <a href="agreements.html?type=construction&partner=Kampala%20Heritage%20Builders" class="btn-view-profile-sm">
+                        📄 Agreement
+                    </a>
+                </div>
+            </div>
+
+            <!-- RESULT 6: Broker -->
+            <div class="match-result-card" data-category="sell">
+                <div class="match-card-top">
+                    <div class="match-avatar" style="background: #eff6ff; color: #2563eb;">💼</div>
+                    <div class="match-meta">
+                        <h4>Crested Crane Property Associates</h4>
+                        <p>Commercial & Residential Sales Agency</p>
+                    </div>
+                </div>
+                <div class="match-stats-row">
+                    <div>
+                        <strong>65+</strong>
+                        <span>Deals Closed</span>
+                    </div>
+                    <div>
+                        <strong>4.9 ★</strong>
+                        <span>Rating</span>
+                    </div>
+                    <div>
+                        <strong>5%</strong>
+                        <span>Competitive Comm.</span>
+                    </div>
+                </div>
+                <p style="font-size: 0.86rem; color: #475569;">
+                    Dedicated representation for property owners looking to liquidate prime plots, completed apartments, and estate packages.
+                </p>
+                <div class="match-card-actions">
+                    <button class="btn-connect-sm" style="background: #2563eb;" onclick="initiateDirectLink('Crested Crane Property Associates', 'Licensed Broker', 'Sell Mandate')">
+                        🤝 Link With Broker
+                    </button>
+                    <a href="agreements.html?type=brokerage&partner=Crested%20Crane%20Property" class="btn-view-profile-sm">
+                        📄 Agreement
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= CONNECTIVITY MODAL ================= -->
+<div class="modal-overlay" id="connectModal">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3 id="modalPartnerTitle">Initiate Relationship Link</h3>
+            <button class="modal-close-btn" onclick="closeConnectModal()">✕</button>
+        </div>
+        <div class="modal-body">
+            <form id="linkProposalForm">
+                <input type="hidden" id="modalPartnerName" value="">
+                <input type="hidden" id="modalPartnerType" value="">
+
+                <div class="form-group" style="margin-bottom: 16px;">
+                    <label style="font-size: 0.85rem; font-weight: 700; color: #475569;">Target Partner</label>
+                    <input type="text" id="partnerDisplayField" readonly style="background: #f1f5f9; font-weight: 700;">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 16px;">
+                    <label for="relationshipTypeSelect" style="font-size: 0.85rem; font-weight: 700; color: #475569;">Relationship Nature</label>
+                    <select id="relationshipTypeSelect" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                        <option value="build_contract">🏗️ Construction Client ⟷ Builder (Build My House)</option>
+                        <option value="brokerage_mandate">💼 Landlord ⟷ Broker (Sell / Market My Property)</option>
+                        <option value="residential_lease">🔑 Tenant ⟷ Landlord (Rent / Lease Agreement)</option>
+                        <option value="property_maintenance">🛠️ Landlord ⟷ Facility Manager (Maintenance SLA)</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 16px;">
+                    <label for="proposalScope" style="font-size: 0.85rem; font-weight: 700; color: #475569;">Project / Property Details & Scope</label>
+                    <textarea id="proposalScope" rows="3" placeholder="e.g. 4-Bedroom modern villa in Kololo, budget UGX 350M, starting November 2026..." style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-family: inherit;"></textarea>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 16px;">
+                    <label for="proposedBudget" style="font-size: 0.85rem; font-weight: 700; color: #475569;">Estimated Budget / Consideration (UGX / USD)</label>
+                    <input type="text" id="proposedBudget" placeholder="e.g. UGX 450,000,000 or UGX 3,500,000 / month" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                </div>
+
+                <div style="background: #eef5f4; border: 1px solid #c7ddda; border-radius: 8px; padding: 12px; font-size: 0.84rem; color: #1f8a70; display: flex; align-items: center; gap: 8px;">
+                    <span>📜</span>
+                    <span>Submitting this proposal automatically prepares a draft Legal Agreement for both parties to review and digitally sign.</span>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-secondary-sm" onclick="closeConnectModal()">Cancel</button>
+            <button class="btn-primary-sm" style="padding: 10px 20px;" onclick="submitLinkProposal()">
+                🔗 Send Connection Proposal
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ================= TOAST NOTIFICATION ================= -->
+<div class="toast-msg" id="toastMessage">
+    <span>✓</span>
+    <span id="toastText">Connection Proposal Sent Successfully!</span>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-box">
+            <div class="logo">
+                EOTO <span>PROPERTIES</span>
+            </div>
+            <p>
+                The ultimate Real Estate Connectivity Platform. Building, Selling, Renting, Maintaining, and Legally Connecting all real estate participants under one roof.
+            </p>
+        </div>
+
+        <div class="footer-box">
+            <h4>Connectivity Links</h4>
+            <a href="connectivity.html">🌐 Real Estate Matchmaker</a>
+            <a href="agreements.html">📜 Digital Agreement Studio</a>
+            <a href="properties.html">🏗️ Construction Portfolios</a>
+            <a href="dashboard.html">📊 Multi-Role Dashboard</a>
+        </div>
+
+        <div class="footer-box">
+            <h4>Entity Portals</h4>
+            <a href="dashboard.html?role=builder">Client / Builder Hub</a>
+            <a href="dashboard.html?role=construction">Construction Firm Portal</a>
+            <a href="dashboard.html?role=landlord">Landlord & Owner Suite</a>
+            <a href="dashboard.html?role=broker">Broker & Agent Suite</a>
+            <a href="dashboard.html?role=tenant">Tenant & Renter Desk</a>
+        </div>
+
+        <div class="footer-box">
+            <h4>Contact Eoto</h4>
+            <p>Plot 42 Kampala Road, Uganda</p>
+            <p>+256 700 000 000</p>
+            <p>support@eotoproperties.com</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© <span id="year"></span> Eoto Real Estate Connectivity Platform. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="css/js/script.js"></script>
+</body>
+</html>

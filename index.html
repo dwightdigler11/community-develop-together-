@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Eoto Real Estate Connectivity Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="auth-page">
+
+    <div class="auth-box">
+        <div class="auth-header">
+            <div class="logo">
+                EOTO <span>PROPERTIES</span>
+            </div>
+            <h1>Real Estate Connectivity</h1>
+            <p class="auth-subtitle">Sign in to connect with Builders, Brokers, Landlords & Tenants</p>
+        </div>
+
+        <form id="loginForm" class="auth-form">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    value="demo@eotoproperties.com"
+                    required>
+                <span class="error-message" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-wrapper">
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        value="Password123"
+                        required>
+                    <button type="button" class="toggle-password" id="togglePassword">
+                        👁️
+                    </button>
+                </div>
+                <span class="error-message" id="passwordError"></span>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label>
+                    <input type="checkbox" id="rememberMe" checked>
+                    <span>Remember me</span>
+                </label>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="button button-full">
+                Sign In & Enter Platform
+            </button>
+
+            <span class="error-message" id="loginMessage"></span>
+        </form>
+
+        <!-- 1-CLICK INSTANT DEMO ROLES -->
+        <div class="demo-role-box">
+            <p>⚡ One-Click Instant Role Demo</p>
+            <div class="demo-buttons-grid">
+                <button type="button" class="btn-demo-role" onclick="loginAsDemoRole('landlord')">
+                    👑 As Landlord / Owner
+                </button>
+                <button type="button" class="btn-demo-role" onclick="loginAsDemoRole('construction')">
+                    🔨 As Construction Firm
+                </button>
+                <button type="button" class="btn-demo-role" onclick="loginAsDemoRole('broker')">
+                    💼 As Real Estate Broker
+                </button>
+                <button type="button" class="btn-demo-role" onclick="loginAsDemoRole('tenant')">
+                    🏠 As Tenant / Renter
+                </button>
+                <button type="button" class="btn-demo-role" style="grid-column: span 2;" onclick="loginAsDemoRole('builder')">
+                    🏗️ As Home Builder / Client
+                </button>
+            </div>
+        </div>
+
+        <div class="auth-footer">
+            <p>Don't have an account? <a href="signup.html" class="auth-link">Sign Up</a></p>
+            <p style="margin-top: 6px; font-size: 0.85rem;"><a href="signout.html" class="auth-link" style="color: var(--muted);">🚪 Active session? Sign Out here</a></p>
+            <a href="home.html" class="back-home">← Back to Public Portal</a>
+        </div>
+    </div>
+
+    <script src="css/js/script.js"></script>
+
+</body>
+
+</html>

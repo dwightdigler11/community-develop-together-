@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eoto Real Estate Connectivity Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo">
+            EOTO
+            <span>PROPERTIES</span>
+        </div>
+
+        <a href="dashboard.html" class="active">
+            📊 Overview
+        </a>
+
+        <a href="connectivity.html">
+            🌐 Connectivity Hub
+        </a>
+
+        <a href="agreements.html">
+            📜 Digital Agreements
+        </a>
+
+        <a href="properties.html">
+            🏠 Properties & Projects
+        </a>
+
+        <a href="javascript:void(0)" onclick="openModal('workOrderModal')">
+            🛠️ Maintenance Desk
+        </a>
+
+        <a href="javascript:void(0)" onclick="openModal('quickMessageModal')">
+            ✉️ Messages & Links
+        </a>
+
+        <a href="home.html">
+            🏡 Public Portal
+        </a>
+
+        <a href="signout.html">
+            🚪 Sign Out
+        </a>
+    </aside>
+
+    <!-- MAIN DASHBOARD -->
+    <main class="dashboard-main">
+        <button class="dashboard-menu" id="dashboardMenu">
+            ☰ Menu
+        </button>
+
+        <!-- HEADER -->
+        <div class="dashboard-header">
+            <div>
+                <p class="small-title">
+                    REAL ESTATE CONNECTIVITY PLATFORM
+                </p>
+                <h1>
+                    Unified Ecosystem Control Centre
+                    for <em> the society at large
+
+                    </em>
+                </h1>
+                <p>
+                    Managing relationships between Clients, Builders, Landlords, Brokers, and Tenants.
+                </p>
+            </div>
+
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a href="agreements.html" class="button" style="background: var(--blue);">
+                    📜 New Agreement
+                </a>
+                <a href="connectivity.html" class="button">
+                    ⚡ Find & Link Partner
+                </a>
+            </div>
+        </div>
+
+        <!-- ROLE SWITCHER STRIP -->
+        <div class="role-navigation-strip">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 0.82rem; font-weight: 800; color: #64748b; text-transform: uppercase;">
+                    Switch Perspective:
+                </span>
+            </div>
+            <div class="role-buttons-group">
+                <button type="button" class="role-pill active" id="pillRoleLandlord"
+                    onclick="switchDashboardPerspective('landlord')">
+                    👑 Landlord / Owner
+                </button>
+                <button type="button" class="role-pill" id="pillRoleConstruction"
+                    onclick="switchDashboardPerspective('construction')">
+                    🔨 Construction Firm
+                </button>
+                <button type="button" class="role-pill" id="pillRoleBroker"
+                    onclick="switchDashboardPerspective('broker')">
+                    💼 Real Estate Broker
+                </button>
+                <button type="button" class="role-pill" id="pillRoleTenant"
+                    onclick="switchDashboardPerspective('tenant')">
+                    🏠 Tenant / Renter
+                </button>
+                <button type="button" class="role-pill" id="pillRoleBuilder"
+                    onclick="switchDashboardPerspective('builder')">
+                    🏗️ Home Builder / Client
+                </button>
+            </div>
+        </div>
+
+        <!-- DYNAMIC STATS CARDS -->
+        <div class="dashboard-cards" id="statsCardsContainer">
+            <!-- Will be populated dynamically by JS according to selected role -->
+            <div>
+                <p>Active Relationships</p>
+                <h2 id="stat1Value">8</h2>
+                <small id="stat1Desc">Brokers & Contractors</small>
+            </div>
+            <div>
+                <p>Signed Agreements</p>
+                <h2 id="stat2Value">14</h2>
+                <small id="stat2Desc">Leases & Mandates</small>
+            </div>
+            <div>
+                <p>Active Value / Portfolio</p>
+                <h2 id="stat3Value">UGX 1.8B</h2>
+                <small id="stat3Desc">Under Management</small>
+            </div>
+            <div>
+                <p>Pending Actions</p>
+                <h2 id="stat4Value">3</h2>
+                <small id="stat4Desc">Reviews & Requests</small>
+            </div>
+        </div>
+
+        <!-- ROLE SPECIFIC CONTENT BLOCK -->
+        <div id="roleContentWrapper">
+
+            <!-- ================= LANDLORD PERSPECTIVE ================= -->
+            <div id="viewLandlord" class="role-view-block">
+                <!-- RELATIONSHIP GRID: LANDLORD <-> BROKERS & MAINTENANCE -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                    <!-- SECTION 1: BROKER SALES MANDATES -->
+                    <section class="dashboard-panel" style="margin-bottom: 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <h2>💼 My Selling Brokers</h2>
+                            <button class="btn-primary-sm" onclick="openConnectModal('sell', 'Licensed Broker')">+ Link
+                                Broker</button>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div
+                                style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <strong style="color: var(--dark); font-size: 0.95rem;">Victoria Premier
+                                        Realty</strong>
+                                    <div style="font-size: 0.8rem; color: #64748b;">Property: Modern Kololo Villa •
+                                        Asking: UGX 450M</div>
+                                    <span
+                                        style="font-size: 0.75rem; background: #dbeafe; color: #1d4ed8; padding: 2px 8px; border-radius: 4px; font-weight: 700;">Exclusive
+                                        90-Day Mandate</span>
+                                </div>
+                                <a href="agreements.html?type=brokerage" class="btn-secondary-sm">View Mandate</a>
+                            </div>
+
+                            <div
+                                style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <strong style="color: var(--dark); font-size: 0.95rem;">Crested Crane Property
+                                        Associates</strong>
+                                    <div style="font-size: 0.8rem; color: #64748b;">Property: Entebbe Lakeside Plots •
+                                        Value: UGX 280M</div>
+                                    <span
+                                        style="font-size: 0.75rem; background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 4px; font-weight: 700;">Open
+                                        Listing Agreement</span>
+                                </div>
+                                <a href="agreements.html?type=brokerage" class="btn-secondary-sm">View Mandate</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 2: MAINTENANCE & FACILITY DESK -->
+                    <section class="dashboard-panel" style="margin-bottom: 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <h2>🛠️ Property Maintenance SLA</h2>
+                            <button class="btn-primary-sm" onclick="openModal('workOrderModal')">+ New Work
+                                Order</button>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div
+                                style="background: #fdf2f8; border: 1px solid #fbcfe8; border-radius: 10px; padding: 14px; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <strong style="color: #9d174d; font-size: 0.95rem;">Apt 4B - Water Booster Pump
+                                        Repair</strong>
+                                    <div style="font-size: 0.8rem; color: #64748b;">Assigned to: Eoto Pro-Care Facility
+                                        Team</div>
+                                    <span
+                                        style="font-size: 0.75rem; background: #fce7f3; color: #be185d; padding: 2px 8px; border-radius: 4px; font-weight: 700;">Urgent
+                                        • Dispatch En Route</span>
+                                </div>
+                                <span style="font-size: 0.85rem; font-weight: 700; color: #be185d;">Active</span>
+                            </div>
+
+                            <div
+                                style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <strong style="color: var(--dark); font-size: 0.95rem;">Annual Electrical Safety
+                                        Audit</strong>
+                                    <div style="font-size: 0.8rem; color: #64748b;">Kampala Villa Portfolio • Next: 20th
+                                        Oct 2026</div>
+                                    <span
+                                        style="font-size: 0.75rem; background: #eef5f4; color: #1f8a70; padding: 2px 8px; border-radius: 4px; font-weight: 700;">Scheduled</span>
+                                </div>
+                                <a href="agreements.html?type=maintenance" class="btn-secondary-sm">SLA Terms</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ACTIVE TENANTS & LEASES -->
+                <section class="dashboard-panel">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <h2>🔑 Tenant Leases & Direct Connections</h2>
+                        <a href="agreements.html?type=lease" class="btn-primary-sm">+ Draft New Lease</a>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #e2e8f0; color: #64748b;">
+                                    <th style="padding: 10px;">Tenant Name</th>
+                                    <th style="padding: 10px;">Property</th>
+                                    <th style="padding: 10px;">Monthly Rent</th>
+                                    <th style="padding: 10px;">Lease Expiry</th>
+                                    <th style="padding: 10px;">Agreement Status</th>
+                                    <th style="padding: 10px; text-align: right;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #f1f5f9;">
+                                    <td style="padding: 12px 10px;"><strong>Michael Ochieng</strong></td>
+                                    <td style="padding: 12px 10px;">Lake View Family Home #2</td>
+                                    <td style="padding: 12px 10px;">UGX 4,500,000</td>
+                                    <td style="padding: 12px 10px;">31 Aug 2027</td>
+                                    <td style="padding: 12px 10px;"><span
+                                            style="background: #ccfbf1; color: #0f766e; padding: 4px 8px; border-radius: 6px; font-size: 0.78rem; font-weight: 700;">Signed
+                                            & Active</span></td>
+                                    <td style="padding: 12px 10px; text-align: right;"><a
+                                            href="agreements.html?type=lease" class="btn-secondary-sm">View Lease</a>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #f1f5f9;">
+                                    <td style="padding: 12px 10px;"><strong>Brenda Atuhaire</strong></td>
+                                    <td style="padding: 12px 10px;">Kololo Penthouse 3</td>
+                                    <td style="padding: 12px 10px;">UGX 3,200,000</td>
+                                    <td style="padding: 12px 10px;">15 Nov 2026</td>
+                                    <td style="padding: 12px 10px;"><span
+                                            style="background: #fef3c7; color: #b45309; padding: 4px 8px; border-radius: 6px; font-size: 0.78rem; font-weight: 700;">Renewal
+                                            Due</span></td>
+                                    <td style="padding: 12px 10px; text-align: right;"><button class="btn-secondary-sm"
+                                            onclick="showToast('Renewal notice sent to Brenda')">Send Notice</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ================= CONSTRUCTION FIRM PERSPECTIVE ================= -->
+            <div id="viewConstruction" class="role-view-block" style="display: none;">
+                <section class="dashboard-panel">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <div>
+                            <h2>🏗️ Active Construction Sites & Milestone Tracker</h2>
+                            <p style="color: #64748b; font-size: 0.88rem;">Apex Prime Engineering Consortium</p>
+                        </div>
+                        <button class="btn-primary-sm" onclick="openModal('newProjectModal')">+ Log New Building
+                            Site</button>
+                    </div>
+
+                    <!-- PROJECT 1 -->
+                    <div
+                        style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; margin-bottom: 18px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+                            <div>
+                                <h3 style="color: var(--dark); margin-bottom: 4px;">Kololo Hill 4-Bedroom Luxury Villa
+                                </h3>
+                                <div style="font-size: 0.84rem; color: #64748b;">
+                                    Client: <strong>Dr. Ronald Kiggundu</strong> • Total Contract: <strong>UGX
+                                        450,000,000</strong>
+                                </div>
+                            </div>
+                            <a href="agreements.html?type=construction" class="btn-secondary-sm">📄 Construction
+                                Agreement</a>
+                        </div>
+
+                        <!-- Milestone Pipeline -->
+                        <div class="milestones-pipeline">
+                            <div class="milestone-step completed">
+                                <div class="milestone-circle">✓</div>
+                                <span class="milestone-label">Site & Excavation</span>
+                            </div>
+                            <div class="milestone-step completed">
+                                <div class="milestone-circle">✓</div>
+                                <span class="milestone-label">Foundation Cast</span>
+                            </div>
+                            <div class="milestone-step active">
+                                <div class="milestone-circle">3</div>
+                                <span class="milestone-label">Superstructure (65%)</span>
+                            </div>
+                            <div class="milestone-step">
+                                <div class="milestone-circle">4</div>
+                                <span class="milestone-label">Roofing & MEP</span>
+                            </div>
+                            <div class="milestone-step">
+                                <div class="milestone-circle">5</div>
+                                <span class="milestone-label">Handover</span>
+                            </div>
+                        </div>
+
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 0.85rem;">
+                            <span style="color: #ea580c; font-weight: 700;">Current Phase: Framing & Brickwork In
+                                Progress</span>
+                            <button class="btn-primary-sm" style="background: #ea580c;"
+                                onclick="showToast('Milestone inspection report uploaded for Client')">
+                                📸 Submit Inspection Photos
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 2 -->
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+                            <div>
+                                <h3 style="color: var(--dark); margin-bottom: 4px;">Busabala Lakeside Eco-Resort Villa
+                                </h3>
+                                <div style="font-size: 0.84rem; color: #64748b;">
+                                    Client: <strong>Sarah Namuli</strong> • Total Contract: <strong>UGX
+                                        320,000,000</strong>
+                                </div>
+                            </div>
+                            <a href="agreements.html?type=construction" class="btn-secondary-sm">📄 Construction
+                                Agreement</a>
+                        </div>
+
+                        <div class="milestones-pipeline">
+                            <div class="milestone-step completed">
+                                <div class="milestone-circle">✓</div>
+                                <span class="milestone-label">Architectural Plans</span>
+                            </div>
+                            <div class="milestone-step active">
+                                <div class="milestone-circle">2</div>
+                                <span class="milestone-label">Foundation Pouring</span>
+                            </div>
+                            <div class="milestone-step">
+                                <div class="milestone-circle">3</div>
+                                <span class="milestone-label">Brick & Beam</span>
+                            </div>
+                            <div class="milestone-step">
+                                <div class="milestone-circle">4</div>
+                                <span class="milestone-label">Roofing</span>
+                            </div>
+                            <div class="milestone-step">
+                                <div class="milestone-circle">5</div>
+                                <span class="milestone-label">Finishing</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ================= BROKER PERSPECTIVE ================= -->
+            <div id="viewBroker" class="role-view-block" style="display: none;">
+                <section class="dashboard-panel">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <div>
+                            <h2>💼 Real Estate Broker Mandates & Commission Pipeline</h2>
+                            <p style="color: #64748b; font-size: 0.88rem;">Victoria Premier Realty & Associates</p>
+                        </div>
+                        <a href="connectivity.html#matchmaker" class="btn-primary-sm">+ Find Landlords Needing
+                            Brokers</a>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px;">
+                        <div
+                            style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 18px; box-shadow: 0 4px 14px rgba(0,0,0,0.04);">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <span
+                                    style="font-size: 0.75rem; background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 4px; font-weight: 700;">Exclusive
+                                    Listing</span>
+                                <strong style="color: var(--green);">5% Comm. (UGX 22.5M)</strong>
+                            </div>
+                            <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Modern Kampala Villa</h4>
+                            <p style="font-size: 0.82rem; color: #64748b;">Landlord: Hajji Ssemwanga • Price: UGX
+                                450,000,000</p>
+                            <div style="margin: 12px 0; font-size: 0.84rem; color: #334155;">
+                                👁️ 142 Inquiries • 6 In-person Showings • 2 Offers in Escrow
+                            </div>
+                            <div style="display: flex; gap: 8px; margin-top: 10px;">
+                                <a href="properties.html" class="btn-secondary-sm"
+                                    style="flex: 1; text-align: center;">View Listing</a>
+                                <a href="agreements.html?type=brokerage" class="btn-connect-sm"
+                                    style="flex: 1; background: #2563eb;">Broker Mandate</a>
+                            </div>
+                        </div>
+
+                        <div
+                            style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 18px; box-shadow: 0 4px 14px rgba(0,0,0,0.04);">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <span
+                                    style="font-size: 0.75rem; background: #ccfbf1; color: #0f766e; padding: 2px 8px; border-radius: 4px; font-weight: 700;">Rental
+                                    Leasing Mandate</span>
+                                <strong style="color: var(--green);">1 Month Rent (UGX 4.5M)</strong>
+                            </div>
+                            <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Lake View Family Estate</h4>
+                            <p style="font-size: 0.82rem; color: #64748b;">Landlord: Dr. Ronald Kiggundu • Rent: UGX
+                                4,500,000/mo</p>
+                            <div style="margin: 12px 0; font-size: 0.84rem; color: #334155;">
+                                🔑 28 Tenant Applications • Background screening completed
+                            </div>
+                            <div style="display: flex; gap: 8px; margin-top: 10px;">
+                                <a href="properties.html" class="btn-secondary-sm"
+                                    style="flex: 1; text-align: center;">View Listing</a>
+                                <a href="agreements.html?type=lease" class="btn-connect-sm"
+                                    style="flex: 1; background: #0d9488;">Lease Tenancy</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ================= TENANT PERSPECTIVE ================= -->
+            <div id="viewTenant" class="role-view-block" style="display: none;">
+                <section class="dashboard-panel">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <div>
+                            <h2>🏠 My Tenancy Hub & Landlord Relationship</h2>
+                            <p style="color: #64748b; font-size: 0.88rem;">Current Residence: Modern Kampala Villa, Apt
+                                2B</p>
+                        </div>
+                        <button class="btn-primary-sm" onclick="openModal('workOrderModal')">🛠️ Report Repair /
+                            Issue</button>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; align-items: start;">
+                        <div
+                            style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px;">
+                            <h3 style="margin-bottom: 10px;">Active Lease Summary</h3>
+                            <p style="font-size: 0.9rem; color: #475569; margin-bottom: 12px;">
+                                Landlord: <strong>Hajji Ssemwanga</strong> • Term: <strong>12 Months (Ends 31 Oct
+                                    2027)</strong>
+                            </p>
+                            <div
+                                style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 14px; margin-bottom: 14px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                    <span>Monthly Rent:</span>
+                                    <strong>UGX 4,500,000</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                    <span>Payment Due Date:</span>
+                                    <strong>1st of every month</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; color: #16a34a;">
+                                    <span>Current Status:</span>
+                                    <strong>✓ Rent Up to Date</strong>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <a href="agreements.html?type=lease" class="btn-secondary-sm">📜 View Signed Lease
+                                    Document</a>
+                                <button class="btn-connect-sm" onclick="showToast('Landlord direct message opened')">💬
+                                    Message Landlord</button>
+                            </div>
+                        </div>
+
+                        <div
+                            style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px;">
+                            <h4 style="margin-bottom: 8px;">Facility Management</h4>
+                            <p style="font-size: 0.82rem; color: #64748b; margin-bottom: 12px;">
+                                Need help with plumbing, power, or keys? The landlord's maintenance team is on standby.
+                            </p>
+                            <button class="button" style="width: 100%; text-align: center; padding: 10px;"
+                                onclick="openModal('workOrderModal')">
+                                🔧 Request Repair
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ================= HOME BUILDER PERSPECTIVE ================= -->
+            <div id="viewBuilder" class="role-view-block" style="display: none;">
+                <section class="dashboard-panel">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <div>
+                            <h2>🏗️ My Dream House Project Portal</h2>
+                            <p style="color: #64748b; font-size: 0.88rem;">Connected with: Apex Prime Engineering Ltd
+                            </p>
+                        </div>
+                        <a href="connectivity.html#matchmaker" class="btn-primary-sm">+ Request Another Quote</a>
+                    </div>
+
+                    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 22px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                            <div>
+                                <h3 style="color: var(--dark); margin-bottom: 4px;">Kololo Hill 4-Bedroom Modern Villa
+                                </h3>
+                                <div style="font-size: 0.85rem; color: #64748b;">Contract Amount: <strong>UGX
+                                        450,000,000</strong> • Paid to Date: <strong>UGX 180,000,000 (40%)</strong>
+                                </div>
+                            </div>
+                            <a href="agreements.html?type=construction" class="btn-secondary-sm">📜 My Construction
+                                Contract</a>
+                        </div>
+
+                        <!-- Progress bar -->
+                        <div style="margin-bottom: 20px;">
+                            <div
+                                style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">
+                                <span>Overall Construction Progress</span>
+                                <span style="color: var(--green);">55% Complete</span>
+                            </div>
+                            <div
+                                style="width: 100%; height: 12px; background: #e2e8f0; border-radius: 6px; overflow: hidden;">
+                                <div
+                                    style="width: 55%; height: 100%; background: linear-gradient(90deg, var(--green), #ea580c); border-radius: 6px;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+                            <div
+                                style="background: #f8fafc; padding: 14px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                                <span style="font-size: 0.8rem; color: #64748b;">Upcoming Milestone</span>
+                                <h4 style="margin: 4px 0;">Roof Beam & Truss Lock</h4>
+                                <small style="color: #ea580c; font-weight: 700;">Target: 28th October 2026</small>
+                            </div>
+                            <div
+                                style="background: #f8fafc; padding: 14px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                                <span style="font-size: 0.8rem; color: #64748b;">Lead Engineer</span>
+                                <h4 style="margin: 4px 0;">Eng. Patrick Mukasa</h4>
+                                <small style="color: #2563eb; font-weight: 700;">+256 700 882 104</small>
+                            </div>
+                            <div
+                                style="background: #f8fafc; padding: 14px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                                <span style="font-size: 0.8rem; color: #64748b;">Site Camera</span>
+                                <h4 style="margin: 4px 0;">Live Drone & CCTV</h4>
+                                <button class="btn-secondary-sm" style="padding: 4px 8px; margin-top: 4px;"
+                                    onclick="showToast('Streaming live Kololo site camera feed...')">View Live
+                                    Cam</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+        <!-- QUICK ACTIONS BOTTOM -->
+        <section class="dashboard-panel">
+            <h2>⚡ Ecosystem Actions</h2>
+            <div class="quick-actions">
+                <a href="connectivity.html">
+                    🌐 Partner Matchmaker
+                </a>
+                <a href="agreements.html">
+                    📜 Draft Digital Agreement
+                </a>
+                <a href="javascript:void(0)" onclick="openModal('workOrderModal')">
+                    🛠️ Log Maintenance Order
+                </a>
+                <a href="properties.html">
+                    ➕ List Property / Project
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= WORK ORDER MODAL ================= -->
+    <div class="modal-overlay" id="workOrderModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Issue Maintenance Work Order</h3>
+                <button class="modal-close-btn" onclick="closeModal('workOrderModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="workOrderForm" onsubmit="event.preventDefault(); submitWorkOrder();">
+                    <div class="form-group" style="margin-bottom: 14px;">
+                        <label style="font-size: 0.84rem; font-weight: 700;">Property Address / Unit</label>
+                        <input type="text" id="workOrderProperty" value="Modern Kampala Villa, Unit 3B" required
+                            style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 14px;">
+                        <label style="font-size: 0.84rem; font-weight: 700;">Category of Issue</label>
+                        <select id="workOrderCategory"
+                            style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                            <option value="plumbing">🚰 Plumbing (Leaks, Pump, Drainage)</option>
+                            <option value="electrical">⚡ Electrical (Wiring, Inverter, Outlets)</option>
+                            <option value="structural">🧱 Structural & Masonry Repair</option>
+                            <option value="hvac">❄️ AC / Ventilation</option>
+                            <option value="security">🔒 Locks / Gates / CCTV</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 14px;">
+                        <label style="font-size: 0.84rem; font-weight: 700;">Urgency Level</label>
+                        <select id="workOrderUrgency"
+                            style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                            <option value="routine">Routine (Next 48 Hours)</option>
+                            <option value="urgent">Urgent (Within 12 Hours)</option>
+                            <option value="emergency">🚨 Emergency (Immediate Dispatch)</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 14px;">
+                        <label style="font-size: 0.84rem; font-weight: 700;">Issue Description</label>
+                        <textarea id="workOrderDesc" rows="3" placeholder="Describe the defect in detail..." required
+                            style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1; font-family: inherit;"></textarea>
+                    </div>
+                    <div class="modal-footer" style="padding: 0; background: none; border: none; margin-top: 18px;">
+                        <button type="button" class="btn-secondary-sm"
+                            onclick="closeModal('workOrderModal')">Cancel</button>
+                        <button type="submit" class="btn-primary-sm" style="padding: 10px 20px;">🚀 Dispatch Maintenance
+                            Team</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= QUICK MESSAGE MODAL ================= -->
+    <div class="modal-overlay" id="quickMessageModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Direct Partner Collaboration Channel</h3>
+                <button class="modal-close-btn" onclick="closeModal('quickMessageModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div
+                    style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; max-height: 200px; overflow-y: auto; margin-bottom: 14px; font-size: 0.86rem;">
+                    <div style="margin-bottom: 10px;">
+                        <strong>Eng. Mukasa (Apex Prime):</strong>
+                        <p style="color: #475569;">"Foundation curing test came out at 28MPa, structural integrity 100%
+                            verified. Proceeding with blockwork."</p>
+                        <small style="color: #94a3b8;">Today, 10:45 AM</small>
+                    </div>
+                    <div>
+                        <strong>Victoria Premier Realty:</strong>
+                        <p style="color: #475569;">"We have scheduled 3 high-intent buyers for the Kololo open house
+                            this Saturday."</p>
+                        <small style="color: #94a3b8;">Yesterday, 4:15 PM</small>
+                    </div>
+                </div>
+                <form onsubmit="event.preventDefault(); sendQuickMessage();">
+                    <input type="text" id="quickMsgInput" placeholder="Type your message to linked partners..."
+                        style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; margin-bottom: 12px;">
+                    <div style="display: flex; justify-content: flex-end; gap: 8px;">
+                        <button type="button" class="btn-secondary-sm"
+                            onclick="closeModal('quickMessageModal')">Close</button>
+                        <button type="submit" class="btn-primary-sm">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast-msg" id="toastMessage">
+        <span>✓</span>
+        <span id="toastText">Action processed successfully!</span>
+    </div>
+
+    <script src="css/js/script.js"></script>
+</body>
+
+</html>
